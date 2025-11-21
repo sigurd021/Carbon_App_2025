@@ -10,7 +10,14 @@ application = Flask(__name__)
 # DBVAR = f"postgresql://{os.environ['RDS_USERNAME']}:{os.environ['RDS_PASSWORD']}@{os.environ['RDS_HOSTNAME']}/{os.environ['RDS_DB_NAME']}"
 # application.config['SQLALCHEMY_DATABASE_URI'] = DBVAR 
 # application.config['SQLALCHEMY_BINDS'] ={'transport': DBVAR}
-application.config['SECRET_KEY'] = '3oueqkfdfas8ruewqndr8ewrewrouewrere44554'
+# application.config['SECRET_KEY'] = '3oueqkfdfas8ruewqndr8ewrewrouewrere44554'
+
+### Code GitHub
+application.config['SECRET_KEY'] = os.environ['SECRET_KEY']  
+DBVAR = f"postgresql://{os.environ['RDS_USERNAME']}:{os.environ['RDS_PASSWORD']}@{os.environ['RDS_HOSTNAME']}/{os.environ['RDS_DB_NAME']}"
+DBVAR = 'postgresql://username:password@endpoint:5432//ebdb'
+application.config['SQLALCHEMY_DATABASE_URI'] = DBVAR 
+application.config['SQLALCHEMY_BINDS'] ={'transport': DBVAR}
 
 # Initialize extensions
 db = SQLAlchemy(application)
