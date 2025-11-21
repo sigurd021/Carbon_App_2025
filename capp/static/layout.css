@@ -1,25 +1,28 @@
 /* Colors */
 /* Rainy theme 5 -Green Digitalization Course and Students Apps-:
-Navbar (background): #8bbbd9
-Navbar (a hover): #466fa6
-Navbar (logo): #568c63
-Navbar (a menu): #2a4359
+Navbar (background): #e2e8f0
+Navbar (a hover): #16a34a
+Navbar (logo): #0f4c3a
+Navbar (a menu): #0f4c3a
 */
 
 /* Google fonts Roboto  */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap');
 
-/* CSS utilities */
-*{
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+
+/* Carbon App logo */
+.text-logo {
+  color: #0f4c3a!important;
 }
+
+
+/* Font imports */
+
 body {
-  font-family: 'Roboto', sans-serif;
-  background: #fff;
-  line-height: 1.6;
+  font-family: 'Lato', sans-serif !important;
+
 }
+  
 .container {
   margin: auto;
   max-width: 1320px;
@@ -29,7 +32,7 @@ ul {
   font-size: 400;
 }
 a {
-  color: #333;
+  color: #0f4c3a;
   text-decoration: none;
 }
 h1, h2 {
@@ -43,51 +46,79 @@ p {
 img {
   width: 100%;
 }
+
+/* Flash Messages */
+.flash-messages-container {
+  margin-top: 80px;
+  position: fixed;
+  z-index: 9999;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 /* Navbar  */
 .section_carbon_app_navbar {
-  background-color:#8bbbd9;
+  background-color: #f5f5f5;
+  
 }
+
 .carbon_app_navbar {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
   height: 70px;
   align-items: center;
-  background-color: #8bbbd9;
-  padding: 0 0px;
+  background-color: transparent;
+ 
 }
 .carbon_app_navbar a {
-  color: #2a4359;
+  color: #0f4c3a;
   padding: 10px 20px;
   margin: 0 5px;
   font-size: 20px;
   text-decoration: none;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 .carbon_app_navbar a:hover{
-  border-bottom: #2a4359 4px solid;
+  color: #15803d;
 }
 .carbon_app_navbar ul {
-  display: flex;
+  display:flex ;
   flex-direction: row;
+  margin-bottom: 5px;
 }
-.carbon_app_navbar .logo {
-  font-weight: 400;
+
+.carbon_app_navbar .logo .logo-link {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
 }
-.text-logo {
-  color: #568c63;
+.carbon_app_navbar .logo .logo-link:hover {
+  border-bottom: none;
 }
+
 /* Footer  */
 .section_footer{
-  background-color:#8bbbd9;
+  background-color:white;
 }
 .footer {
-  display: flex;
+  display:flex ;
   flex-direction: row;
   justify-content: center;
   height: 70px;
   align-items: center;
-  background-color: #8bbbd9;
+  background-color: white;
   padding: 0 0px;
+}
+
+.section_carbon_app_navbar.is-overlay {
+  background: transparent !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 
@@ -106,7 +137,14 @@ img {
     flex-direction: column;
   }
   .carbon_app_navbar a:hover{
-    color: #568c63;
-    border-bottom: #2a4359 2px solid;
+    color: #10b981;
+    border-bottom: #15803d 2px solid;
   }
-}
+  .flash-messages-container {
+    top: 90px;          
+    width: 90%;          
+    left: 50%;
+    transform: translateX(-50%);
+    position: fixed;
+  }
+  }

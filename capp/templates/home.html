@@ -1,118 +1,88 @@
 {% extends "layout.html" %}
 {% block content %}
 
-
-<!-- Header -->
-<section class="section_header_home">
-  <div class="container">
-
-    <div class="header_home">
-      <div class="box"> 
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}">
-                        {{ message }}
-                    </div> 
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-        <h1 style="font-size:55px;"><span class="text-logo"> Home</span></h1>
-        <p style="text-align:left;">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat dolores quos asperiores repellendus facilis cum illo aperiam odit doloremque nostrum. Totam excepturi labore voluptatibus iusto sapiente quisquam consectetur optio magnam voluptates omnis vel officia alias distinctio quas laborum reiciendis ratione inventore veniam, cupiditate doloribus dolore, eius natus a. Magni inventore consequuntur voluptas reprehenderit perferendis! Molestias aspernatur rem autem aut temporibus.
-        </p>
-        {% if current_user.is_authenticated %}
-        {% else %}
-        <div class="container_buttons_links_header_home">
-          <div class="btn">
-              <a href="{{url_for('users.register')}}" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;">Register</a>
-          </div>
-          <div class="btn">
-              <a href="{{url_for('users.login')}}" class="btn btn-primary btn-lg mr-2", style="background-color:#007bff;">Login</a>
-          </div>
-        </div>
-        {% endif %}
-      </div>
-      <div class="box">
-        <img 
-          src="{{url_for('static', filename='icons/carbon_app.svg')}}"
-          width="325" 
-          height="325"
-          alt=""/>
-      </div>
-    </div>
-
-  </div>
-</section> 
-
-
-
-<!-- Developers -->
-<section class="section_developers">
-  <div class="container">
-
-    <div class="developers" style="display:block;">
-      <h1 style="text-align:center;"> Our Team</h1>
+<!-- Bildet + Hero section -->
+<section class="section_header_home" style="background: url('{{ url_for('static', filename='icons/foggyforrest.jpg') }}') center center / cover no-repeat;">
+  <div class="hero_overlay">
+    <div class="container hero_content">
+      <h1><span class="highlight">Foot</span>Print</h1>
       <p>
-        Our team of economists and developers ... Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia, ut? Praesentium quidem sunt perspiciatis doloremque fugiat nesciunt quaerat ullam, pariatur iure unde ratione ipsum adipisci repellendus, repudiandae hic sit, temporibus molestias corrupti aut soluta sequi! Architecto deleniti expedita nisi repudiandae enim eum quas odit facilis placeat neque porro, animi incidunt consectetur. Maiores ab saepe tempora, iure asperiores beatae suscipit cum ipsum, rerum doloremque reprehenderit dolorum debitis, aliquam quasi. Maiores corporis fuga quasi nesciunt dolor iste, inventore necessitatibus unde!
-      </p>      
-    </div>
-
-    <div class="developers">
-        <div class="box">
-          <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="" style="border-radius: 50%; width:200px;">
-          <h3>Developer 1</h3>
-          <p>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quia repellat omnis? Odit enim hic atque dolorem iste natus inventore perspiciatis vitae dolore animi veritatis aut nemo unde similique, officia reiciendis ex architecto voluptates soluta ab tempore facilis quisquam cum.
-          </p>
-          <div class="section_container_buttons_developers">
-            <a class="btn_developers" href="#"  target="_blank">Curriculum</a>
-          </div> 
-        </div>
-        <div class="box">
-          <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="" style="border-radius: 50%; width:200px;">
-          <h3>Developer 2</h3>
-          <p>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quia repellat omnis? Odit enim hic atque dolorem iste natus inventore perspiciatis vitae dolore animi veritatis aut nemo unde similique, officia reiciendis ex architecto voluptates soluta ab tempore facilis quisquam cum.
-          </p>
-          <div class="section_container_buttons_developers">
-            <a class="btn_developers" href="#"  target="_blank">Curriculum</a>
-          </div> 
-        </div>           
-        <div class="box">
-          <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="" style="border-radius: 50%; width:200px;">
-          <h3>Developer 3</h3>
-          <p>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quia repellat omnis? Odit enim hic atque dolorem iste natus inventore perspiciatis vitae dolore animi veritatis aut nemo unde similique, officia reiciendis ex architecto voluptates soluta ab tempore facilis quisquam cum.
-          </p>
-          <div class="section_container_buttons_developers">
-            <a class="btn_developers" href="#"  target="_blank">Curriculum</a>
-          </div> 
-        </div>     
-    </div>
-
-    <div class="developers">
-      <div class="box2">
-        <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="" style="border-radius: 50%; width:200px;">
-        <h3>Developer 4</h3>
-        <p>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quia repellat omnis? Odit enim hic atque dolorem iste natus inventore perspiciatis vitae dolore animi veritatis aut nemo unde similique, officia reiciendis ex architecto voluptates soluta ab tempore facilis quisquam cum.
-        </p>
-        <div class="section_container_buttons_developers">
-          <a class="btn_developers" href="#"  target="_blank">Curriculum</a>
-        </div> 
+        A modern platform to calculate and understand the carbon footprint of different vehicles.  
+        Empowering a cleaner, greener, and smarter future for transportation.
+      </p>
+      <div class="hero_buttons">
+        <a href="{{ url_for('users.register') }}" class="btn_primary">Get Started</a>
+        <a href="{{ url_for('users.login') }}" class="btn_secondary">Login</a>
       </div>
-      <div class="box2">
-        <img src="https://randomuser.me/api/portraits/women/13.jpg" alt="" style="border-radius: 50%; width:200px;">
-        <h3>Developer 5</h3>
-        <p>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quia repellat omnis? Odit enim hic atque dolorem iste natus inventore perspiciatis vitae dolore animi veritatis aut nemo unde similique, officia reiciendis ex architecto voluptates soluta ab tempore facilis quisquam cum.
-        </p>
-        <div class="section_container_buttons_developers">
-          <a class="btn_developers" href="#"  target="_blank">Curriculum</a>
-        </div> 
-      </div>           
-      <div class="box2">
+    </div>
+  </div>
+</section>
 
-      </div>     
+<!-- Info kort -->
+<section class="info_cards_container">
+  <!-- What We Do -->
+  <div class="we_do_card">
+    <h3>What We Do</h3>
+    <p>
+      We help individuals and organizations assess, visualize, and reduce their carbon emissions  
+      through data-driven analysis and user-friendly digital tools.
+    </p>
   </div>
 
-  </div>          
+  <!-- What’s Your Impact -->
+  <div class="impact_card">
+    <h3>What’s Your Impact?</h3>
+    <p>
+      Discover how your travel habits influence carbon emissions.  
+      Join us in the journey toward sustainability — every kilometer counts.
+    </p>
+    <a href="{{ url_for('carbon_app.carbon_app_home') }}" class="link_action">Calculate Emissions</a>
+  </div>
 </section>
-        
+
+<div class="custom-shape-divider-top-1759939526">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+    </svg>
+</div>
+
+<!-- EXPLORE MORE / Navigasjonsbokser -->
+
+<section class="explore_section">
+  <div class="container text-center">
+    <h2 class="developers_title">Explore More</h2>
+    <p class="developers_intro">
+      See the total global emissions, explore our methodology, and meet our team.
+    </p>
+
+    <div class="explore_cards">
+      <a href="#" class="explore_card">
+        <i class="fa-solid fa-globe"></i>
+        <h3>Total Global Emissions</h3>
+      </a>
+
+      <a href="{{url_for('methodology.methodology_home')}}" class="explore_card">
+        <i class="fa-solid fa-chart-line"></i>
+        <h3>Methodology</h3>
+      </a>
+
+      <a href="{{url_for('about_us.about_us_home')}}" class="explore_card">
+        <i class="fa-solid fa-people-group"></i>
+        <h3>About Us</h3>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+
+<div class="custom-shape-divider-bottom-1759941253">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+    </svg>
+</div>
+
 {% endblock content %}
+
+
